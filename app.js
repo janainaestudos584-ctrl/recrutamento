@@ -22,28 +22,4 @@ document.getElementById('formCandidato').addEventListener('submit', function(eve
 
     alert(`${nome} cadastrado com sucesso!`);
     this.reset(); // Limpa o formulário
-    console.log(bancoDeCandidatos)
 });
-
-function listarTodos() {
-    const divResultado = document.getElementById('resultado');
-    
-    if (bancoDeCandidatos.length === 0) {
-        divResultado.innerHTML = "<p>Nenhum candidato cadastrado.</p>";
-        return;
-    }
-
-    // 🚀 TRANSFORMANDO DADOS EM HTML COM .map()
-    const htmlCandidatos = bancoDeCandidatos.map(candidato => {
-        return `
-            <div class="card">
-                <strong>Nome:</strong> ${candidato.nome} <br>
-                <strong>Stack:</strong> ${candidato.tecnologia} <br>
-                <strong>XP:</strong> ${candidato.experiencia} anos
-            </div>
-        `;
-    });
-
-    // O .join('') tira as vírgulas que separam os itens do array
-    divResultado.innerHTML = htmlCandidatos.join(''); 
-}
